@@ -1,6 +1,7 @@
 import { IconArrowUp } from "@tabler/icons-react";
 import { useEffect, useRef, useState } from "react";
 
+
 export const ChatInput = ({ onSendMessage }) => {
   const [content, setContent] = useState();
 
@@ -24,6 +25,7 @@ export const ChatInput = ({ onSendMessage }) => {
     // 입력창의 내용을 onSend 함수를 통해 전달한다
     // 입력창의 내용은 사용자의 메시지이므로 role 을 user 로 설정한다
     onSendMessage({ role: "user", content: content });
+
     // 전달 후 입력창의 내용을 초기화한다
     setContent("");
   };

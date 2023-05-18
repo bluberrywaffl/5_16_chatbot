@@ -1,6 +1,17 @@
 import { Chat } from "@/components/Chat";
 import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
+import { db } from "@/firebase";
+import { 
+  collection,
+  query,
+  doc,
+  getDocs,
+  addDoc,
+  updateDoc,          
+} from "firebase/firestore";
+
+const textCollection = collection(db, "texts");
 
 export default function Home() {
   /*
@@ -42,6 +53,7 @@ export default function Home() {
     // 메시지 전송 중임을 표시
     setLoading(true);
 
+    
     // /api/chat 에 메시지 목록을 전송하고 응답을 받음
     const response = await fetch("/api/chat", {
       method: "POST",
@@ -53,20 +65,28 @@ export default function Home() {
         messages: updatedMessages.slice(-6),
       }),
     });
-
+    
+    
+    
     if (!response.ok) {
       setLoading(false);
       throw new Error(response.statusText);
     }
-
+    
     // 응답을 JSON 형태로 변환
     // 비동기 API 를 사용하여 응답을 받기 때문에 await 사용
     const result = await response.json();
-
+    
+    //firebase 데이터 추가
+    await addDoc(textCollection, {
+      userMessage: message,
+      assistantResponse: result,
+    })
+    
     if (!result) {
       return;
     }
-
+    
     // console.log(result);
 
     // 로딩 상태를 해제하고, 메시지 목록에 응답을 추가
@@ -80,7 +100,7 @@ export default function Home() {
     setMessages([
       {
         role: "assistant",
-        content: "안녕? 나는 엘리엇이야. 오늘은 무슨 일이 있었니?",
+        content: "안녕? 나는 구름이야. 오늘은 무슨 일이 있었니?",
       },
     ]);
   };
