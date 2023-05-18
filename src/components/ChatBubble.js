@@ -9,9 +9,9 @@ export const ChatBubble = ({ message }) => {
       <div
         className={`flex items-center ${
           message.role === "assistant"
-            ? "bg-neutral-200 text-neutral-900"
-            : "bg-blue-500 text-white"
-        } rounded-2xl px-3 py-2 max-w-[67%] whitespace-pre-wrap`}
+            ? "bg-gray-700 text-blue-200 rounded-r-lg"
+            : "bg-yellow-300 text-gray-600 rounded-l-lg"
+        } px-3 py-2 max-w-[67%] whitespace-pre-wrap`}
         style={{ overflowWrap: "anywhere" }}
       >
         {message.content}

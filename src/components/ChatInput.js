@@ -52,9 +52,9 @@ export const ChatInput = ({ onSendMessage }) => {
     <div className="relative">
       <textarea
         ref={textareaRef}
-        className="min-h-[44px] rounded-lg pl-4 pr-12 py-2 w-full focus:outline-none focus:ring-1 focus:ring-neutral-300 border-2 border-neutral-200"
+        className="min-h-[44px] rounded-lg pl-4 pr-12 py-2 w-full focus:outline-none focus:ring-1 focus:ring-pink-400 border-2 border-blue-200"
         style={{ resize: "none" }}
-        placeholder="메시지를 입력하세요"
+        placeholder="구름이에게 하고 싶은 말을 전하세요"
         value={content}
         rows={1}
         onChange={handleChange}
@@ -62,7 +62,7 @@ export const ChatInput = ({ onSendMessage }) => {
       />
 
       <button onClick={() => handleSend()}>
-        <IconArrowUp className="absolute right-2 bottom-3 h-8 w-8 hover:cursor-pointer rounded-full p-1 bg-blue-500 text-white hover:opacity-80" />
+        <IconArrowUp className="absolute right-2 bottom-3 h-8 w-8 hover:cursor-pointer rounded-full p-1 bg-blue-300 text-white hover:opacity-80" />
       </button>
     </div>
   );

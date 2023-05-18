@@ -100,7 +100,7 @@ export default function Home() {
     setMessages([
       {
         role: "assistant",
-        content: "안녕? 나는 구름이야. 오늘은 무슨 일이 있었니?",
+        content: "안녕? 나는 구름이야. 무엇이든 물어봐!",
       },
     ]);
   };
@@ -125,13 +125,13 @@ export default function Home() {
       </Head>
 
       <div className="flex flex-col h-screen">
-        <div className="flex h-[50px] sm:h-[60px] border-b border-neutral-300 py-2 px-2 sm:px-8 items-center justify-between">
+        <div className="flex h-[50px] bg-gradient-to-r from-cyan-100 to-yellow-100 sm:h-[60px] border-b border-blue-300 py-2 px-2 sm:px-8 items-center justify-between">
           <div className="font-bold text-3xl flex text-center">
             <a
               className="ml-2 hover:opacity-50"
               href="https://code-scaffold.vercel.app"
             >
-              A Simple Chatbot
+              Talk with 구름
             </a>
           </div>
         </div>
