@@ -154,13 +154,13 @@ export default function Home() {
             />
             {/* 메시지 목록의 끝으로 스크롤하기 위해 참조하는 엘리먼트 */}
             <div className="flex items-center justify-center">
-              {/* <button
+              <button
                 className="w-30 p-5 mb-5 mt-5 bg-blue-300 text-white border border-pink-300 rounded hover:bg-white hover:text-blue-300"
                 style={{ boxShadow: '0 4px 5px rgba(0, 0, 0, 0.3)' }}
                 onClick={handleReset}
               >
                 Refresh
-              </button> */}
+              </button>
               </div>
             <div ref={messagesEndRef} />
           </div>
