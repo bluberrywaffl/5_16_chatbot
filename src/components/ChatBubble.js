@@ -7,7 +7,7 @@ export const ChatBubble = ({ message }) => {
         message.role === "assistant" ? "items-start" : "items-end"
       }`}
     >
-      <button
+      <div
                 className={`flex items-center ${
                   message.role === "assistant"
                     ? "bg-white-700 text-blue-500 rounded-lg overline"
@@ -16,7 +16,7 @@ export const ChatBubble = ({ message }) => {
                 style={{ overflowWrap: "anywhere" }}
               >
                 {message.role}
-              </button>
+              </div>
       <div
         className={`flex items-center ${
           message.role === "assistant"
