@@ -2,6 +2,7 @@
 import { ChatInput } from "./ChatInput";
 import { ChatLoader } from "./ChatLoader";
 import { ChatBubble } from "./ChatBubble";
+import React from "react";
 
 
 export const Chat = ({ messages, loading, onSendMessage }) => {
@@ -11,7 +12,9 @@ export const Chat = ({ messages, loading, onSendMessage }) => {
         {/* messages 의 내용을 ChatBubble 컴포넌트를 통해 출력 */}
         {messages.map((message, index) => (
           <div key={index} className="my-1 sm:my-1.5">
-            <ChatBubble message={message} />
+            <ChatBubble 
+            message={message}
+             />
           </div>
         ))}
 
@@ -26,6 +29,7 @@ export const Chat = ({ messages, loading, onSendMessage }) => {
           {/* 채팅 입력창을 표시, 전송 액션을 실행하는 onSend 함수를 넘겨준다 */}
           <ChatInput onSendMessage={onSendMessage} />
         </div>
+       
       </div>
     </>
   );

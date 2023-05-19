@@ -1,3 +1,4 @@
+
 export const ChatBubble = ({ message }) => {
   return (
     <div
@@ -6,6 +7,16 @@ export const ChatBubble = ({ message }) => {
         message.role === "assistant" ? "items-start" : "items-end"
       }`}
     >
+      <button
+                className={`flex items-center ${
+                  message.role === "assistant"
+                    ? "bg-white-700 text-blue-500 rounded-lg overline"
+                    : "bg-white-300 text-orange-500 rounded-lg overline"
+                } px-3 py-2 max-w-[67%] whitespace-pre-wrap`}
+                style={{ overflowWrap: "anywhere" }}
+              >
+                {message.role}
+              </button>
       <div
         className={`flex items-center ${
           message.role === "assistant"
@@ -16,6 +27,7 @@ export const ChatBubble = ({ message }) => {
       >
         {message.content}
       </div>
+      
     </div>
   );
 };

@@ -8,8 +8,10 @@ import {
   doc,
   getDocs,
   addDoc,
-  updateDoc,          
+  updateDoc,  
+  deleteDoc,        
 } from "firebase/firestore";
+
 
 const textCollection = collection(db, "texts");
 
@@ -88,6 +90,7 @@ export default function Home() {
     }
     
     // console.log(result);
+    
 
     // 로딩 상태를 해제하고, 메시지 목록에 응답을 추가
     setLoading(false);
@@ -150,10 +153,18 @@ export default function Home() {
               onSendMessage={handleSend}
             />
             {/* 메시지 목록의 끝으로 스크롤하기 위해 참조하는 엘리먼트 */}
+            <div className="flex items-center justify-center">
+              <button
+                className="w-30 p-5 mb-5 mt-5 bg-blue-300 text-white border border-pink-300 rounded hover:bg-white hover:text-blue-300"
+                style={{ boxShadow: '0 4px 5px rgba(0, 0, 0, 0.3)' }}
+                onClick={handleReset}
+              >
+                Refresh
+              </button>
+              </div>
             <div ref={messagesEndRef} />
           </div>
         </div>
-
         <div className="flex h-[30px] sm:h-[50px] border-t border-neutral-300 py-2 px-8 items-center sm:justify-between justify-center"></div>
       </div>
     </>
